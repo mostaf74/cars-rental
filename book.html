@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Rental Service - Book Now</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .price-display {
+            margin-top: 10px;
+            font-size: 1.25em;
+            color: #333;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <div class="nav__bar">
+                <div class="logo nav__logo">
+                    <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-3-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="">HOME</a></li>
+                <li><a href="/about.html">ABOUT</a></li>
+                <li><a href="cars.html">CARS</a></li>
+                <li><a href="/contact.html">CONTACT</a></li>
+                <li><a href="book.html" role="button" class="btn-primary">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Book Your Car Now</h2>
+                    <h3>Fast and Easy Car Rental Booking</h3>
+                </hgroup>
+                <form id="booking-form">
+                    <label for="pickup-location">Pick-up Location</label>
+                    <input type="text" id="pickup-location" name="pickup-location" required>
+
+                    <label for="pickup-date">Pick-up Date</label>
+                    <input type="date" id="pickup-date" name="pickup-date" required>
+
+                    <label for="car-type">Car Type</label>
+                    <select id="car-type" name="car-type" required>
+                        <option value="" disabled selected>Select a car type</option>
+                        <option value="corolla" data-price="29">Toyota Corolla $29/day</option>
+                        <option value="bmw" data-price="55">BMW X5 $55/day</option>
+                        <option value="mercedes" data-price="65">Mercedes-Benz $65/day</option>
+                        <option value="audi" data-price="60">Audi A6 $60/day</option>
+                        <option value="mustang" data-price="70">Mustang $70/day</option>
+                        <option value="tesla" data-price="100">Tesla $100/day</option>
+                    </select>
+
+                    <label for="car-color">Car Color</label>
+                    <select id="car-color" name="car-color" required>
+                        <option value="" disabled selected>Select a color</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="silver">Silver</option>
+                    </select>
+
+                    <label for="number-of-days">Number of Days</label>
+                    <input type="number" id="number-of-days" name="number-of-days" placeholder="Number of Days" min="1" required>
+
+                    <label for="special-requests">Special Requests</label>
+                    <textarea id="special-requests" name="special-requests"></textarea>
+
+                    <p class="price-display">Total Price: <span id="total-price">$0</span></p>
+
+                    <input type="hidden" id="price" name="price">
+                    <input type="hidden" id="total-rental-days" name="rental-days">
+
+                    <button type="button" id="proceed-button">Proceed to Payment</button>
+                    <p id="error-message" class="error hidden">Please correct the errors above.</p>
+                </form>
+            </section>
+            <section>
+                <hgroup>
+                    <h2>Pick-up Location</h2>
+                    <h3>Find us here</h3>
+                </hgroup>
+                <div id="map"></div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="section__container subscribe__container">
+            <div class="subscribe__content">
+                <p class="section__subheader">OUR NEWSLETTER</p>
+                <h2 class="section__header">Subscribe To Our Newsletter</h2>
+                <p class="section__description">
+                    Subscribe to our newsletter and receive exclusive content, expert
+                    insights, and special offers delivered directly to your inbox.
+                </p>
+            </div>
+            <div class="subscribe__form">
+                <form action="/">
+                    <input type="text" placeholder="Your Email" />
+                    <button class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <div class="logo footer__logo">
+                    <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+                </div>
+                <p class="section__description">
+                    With a rich legacy spanning 25 years, our commitment to excellence
+                    in car servicing is unwavering.
+                </p>
+                <ul class="footer__socials">
+                    <li>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-google-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-youtube-line"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Our Services</h4>
+                <ul class="footer__links">
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                    <li><a href="terms.html">terms and conditions</a></li>
+                    <li><a href="#">Competitive Pricing</a></li>
+
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Contact Info</h4>
+                <ul class="footer__links">
+                    <li>
+                        <p>
+                            Experience the magic of a rejuvenated ride as we pamper your car
+                            with precision care
+                        </p>
+                    </li>
+                    <li>
+                        <p>Phone: <span>+91 9876543210</span></p>
+                    </li>
+                    <li>
+                        <p>Email: <span>info@carserving.com</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="footer__bar">
+
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="price-calculation.js"></script>
+    <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBILy-o3Br-2JO11e5OKlW0C0I3CaTBNd4&libraries=places&callback=initMap" async defer></script>
+    <script src="form-validation.js"></script>
+    <script src="geolocation.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const carTypeSelect = document.getElementById('car-type');
+        const numberOfDaysInput = document.getElementById('number-of-days');
+        const totalPriceElement = document.getElementById('total-price');
+        const priceInput = document.getElementById('price');
+        const proceedButton = document.getElementById('proceed-button');
+        const pickupDateInput = document.getElementById('pickup-date');
+
+        // Set minimum date for pickup date to today
+        const today = new Date().toISOString().split('T')[0];
+        pickupDateInput.setAttribute('min', today);
+
+        
+        // Function to calculate total price based on selected car type and rental days
+function calculateTotalPrice() {
+    const carTypeOption = carTypeSelect.options[carTypeSelect.selectedIndex];
+    const carPricePerDay = parseFloat(carTypeOption.getAttribute('data-price')) || 0;
+    const numberOfDays = parseInt(numberOfDaysInput.value, 10) || 0;
+
+    const totalPrice = carPricePerDay * numberOfDays;
+    totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`; // Display with two decimals
+    priceInput.value = totalPrice.toFixed(2); // Store total price
+}
+
+
+        // Add event listeners for input changes
+        carTypeSelect.addEventListener('change', calculateTotalPrice);
+        numberOfDaysInput.addEventListener('input', calculateTotalPrice);
+
+        // Event listener for proceed to payment button
+        proceedButton.addEventListener('click', function () {
+            if (priceInput.value === '0' || priceInput.value === '') {
+                alert('Please select a car type and specify the number of rental days to calculate the price.');
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(document.getElementById('booking-form'));
+            const queryString = new URLSearchParams(formData).toString();
+
+            // Redirect to payment page with query parameters
+            window.location.href = 'payment.html?' + queryString;
+        });
+    });
+</script>
+
+
+</html>
