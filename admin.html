@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#appointments">Appointments</a></li>
+            <li><a href="#orders">Orders</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="users">
+            <h2>Users</h2>
+            <button class="add-btn">Add User</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User rows go here -->
+                </tbody>
+            </table>
+        </section>
+        <section id="products">
+            <h2>Products</h2>
+            <button class="add-btn">Add Product</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Product rows go here -->
+                </tbody>
+            </table>
+        </section>
+        <section id="appointments">
+            <h2>Appointments</h2>
+            <button class="add-btn">Add Appointment</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Appointment rows go here -->
+                </tbody>
+            </table>
+        </section>
+        <section id="orders">
+            <h2>Orders</h2>
+            <button class="add-btn">Add Order</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Order rows go here -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
