@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +32,6 @@
             font-size: 1.8rem;
         }
 
-        /* Navigation Styling */
         nav ul {
             padding: 0;
             margin: 0;
@@ -38,7 +39,6 @@
             align-items: center;
             list-style: none;
         }
-        
 
         nav ul li {
             color: #fff;
@@ -89,7 +89,7 @@
         }
 
         .car-card {
-            background-color: aliceblue;
+            background-color: rgb(239, 241, 244);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -101,7 +101,7 @@
         }
 
         .car-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-7px);
         }
 
         .car-card img {
@@ -113,7 +113,7 @@
         }
 
         .car-card img:hover {
-            transform: scale(1.20);
+            transform: scale(1.1);
         }
 
         .car-card h3 {
@@ -171,7 +171,7 @@
             text-decoration: underline;
         }
 
-        /* Mobile Menu Button */
+       
         .nav__menu__btn {
             display: flex;
             font-size: 1.5rem;
@@ -202,7 +202,7 @@
 
             .nav__links {
                 display: none;
-                /* Hide menu links by default on mobile */
+                
                 flex-direction: column;
                 width: 100%;
                 background-color: #000509;
@@ -214,13 +214,38 @@
 
             .nav__links.active {
                 display: flex;
-                /* Show menu links when active */
+              
             }
 
             .nav__links li {
                 margin: 10px 0;
                 text-align: center;
             }
+        }
+
+        
+        .search-container {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #dc3545;
+        }
+
+        
+        .small-card {
+            transform: scale(0.9); 
+            transition: transform 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -229,27 +254,31 @@
     <header class="header">
         <nav>
             <div class="nav__bar">
-              <div class="logo nav__logo">
-                <a href="home.html"><img src="assets/logo.png" alt="logo" /></a>
-              </div>
-              
+                <div class="logo nav__logo">
+                    <a href="home.html"><img src="assets/logo.png" alt="logo" /></a>
+                </div>
+
             </div>
             <ul class="nav__links" id="nav-links">
-              <li><a href="home.html">HOME</a></li>
-              <li><a href="/about.html">ABOUT</a></li>
-              <li><a href="cars.html">CARS</a></li>
-              <li><a href="/contact.html">CONTACT</a></li>
-              <li><a href="book.html" role="button" class="btn-primary">Book Now</a></li>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="/about.html">ABOUT</a></li>
+                <li><a href="cars.html">CARS</a></li>
+                <li><a href="/contact.html">CONTACT</a></li>
+                <li><a href="book.html" role="button" class="btn-primary">Book Now</a></li>
             </ul>
-          </nav>
+        </nav>
     </header>
 
     <main class="container">
         <section class="main-container">
             <h6>Our Fleet</h6>
             <h3>Choose from a wide variety of vehicles</h3>
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search cars...">
+            </div>
             <div class="car-section">
-                <div class="car-card">
+                <div class="car-card" data-name="Toyota Corolla Sedan" data-price="29">
                     <img src="image/OIP-removebg-preview.png" alt="Toyota Corolla Sedan">
                     <h3>Toyota Corolla Sedan</h3>
                     <p>A reliable sedan for your daily commute or business trips.</p>
@@ -257,7 +286,7 @@
                     <a href="car-details-toyota-corolla.html" class="btn-primary">View Details</a>
                 </div>
 
-                <div class="car-card">
+                <div class="car-card" data-name="BMW X5 SUV" data-price="55">
                     <img src="/image/bmw x5 new.png" alt="BMW X5 SUV">
                     <h3>BMW X5 SUV</h3>
                     <p>Luxurious SUV perfect for family vacations and off-road adventures.</p>
@@ -265,7 +294,7 @@
                     <a href="car-details-bmw-x5.html" class="btn-primary">View Details</a>
                 </div>
 
-                <div class="car-card">
+                <div class="car-card" data-name="Mercedes-Benz E-Class" data-price="65">
                     <img src="image/e class.png" alt="Mercedes-Benz E-Class">
                     <h3>Mercedes-Benz E-Class</h3>
                     <p>Elegant and sophisticated for those who appreciate comfort and style.</p>
@@ -273,7 +302,7 @@
                     <a href="car-details-mercedes-e-class.html" class="btn-primary">View Details</a>
                 </div>
 
-                <div class="car-card">
+                <div class="car-card" data-name="Audi A6" data-price="60">
                     <img src="/image/audi a6.webp" alt="Audi A6">
                     <h3>Audi A6</h3>
                     <p>Comfort and performance combined in a sleek design.</p>
@@ -281,7 +310,7 @@
                     <a href="car-details-audi-a6.html" class="btn-primary">View Details</a>
                 </div>
 
-                <div class="car-card">
+                <div class="car-card" data-name="Ford Mustang" data-price="70">
                     <img src="image/black mustang.png" alt="Ford Mustang">
                     <h3>Ford Mustang</h3>
                     <p>Experience the thrill of driving a classic American muscle car.</p>
@@ -289,7 +318,7 @@
                     <a href="car-details-ford-mustang.html" class="btn-primary">View Details</a>
                 </div>
 
-                <div class="car-card">
+                <div class="car-card" data-name="Tesla Model S" data-price="100">
                     <img src="image/tesla.png" alt="Tesla Model S">
                     <h3>Tesla Model S</h3>
                     <p>Innovative electric vehicle with cutting-edge technology.</p>
@@ -306,6 +335,7 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="cars.js"></script>
     
 </body>
 
