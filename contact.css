@@ -1,0 +1,190 @@
+/* Global Reset and Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Header Styling */
+  .header {
+    background-color: #000509;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  /* Navigation Styling */
+  nav ul {
+    padding: 0;
+    background-color: transparent;
+    display: flex;
+    gap: 0px;
+    /* Adjust the gap between navigation items */
+    list-style-type: none;
+    /* Ensure list style is removed */
+    margin: 0;
+    /* Ensure margin is removed */
+  }
+  
+  nav ul li {
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+    color: #fff;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Change color to white */
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #ff000d;
+  }
+  
+  nav li {
+    color: aliceblue;
+    --spacing: 0;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    padding: 20px 0;
+  }
+  
+  .main-content h2 {
+    color: #01070d;
+    margin-bottom: 10px;
+  }
+  
+  .main-content h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .main-content p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styling */
+  form {
+    margin-top: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  form textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    background-color: royalblue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: darkblue;
+  }
+  
+  /* Footer Styling */
+  footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  footer small {
+    color: #777;
+  }
+  
+  footer small a {
+    color: #777;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  footer small a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer Links and Contact Info */
+  .footer__links ul {
+    padding: 0;
+    margin: 0;
+    /* Ensure margin is removed */
+    list-style-type: none;
+    /* Ensure list style is removed */
+  }
+  
+  .footer__links li {
+    margin: 5px 0;
+    /* Reduce the gap between footer items */
+    padding: 0;
+    color: #fff; /* Change color to white */
+  }
+  
+  .footer__links li a {
+    text-decoration: none;
+    color: #fff; /* Change color to white */
+  }
+  
+  .footer__links li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer Contact Info */
+  .footer__links li p {
+    margin: 5px 0;
+    /* Reduce the gap between footer contact info items */
+  }
+  
+  /* Adjusting gap in footer columns */
+  .footer__col {
+    margin-bottom: 20px;
+  }
+  
