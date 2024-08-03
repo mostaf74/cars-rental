@@ -1,0 +1,150 @@
+body {
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.hero {
+    background: url('hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+main .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+section {
+    background-color: #f8f8f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+figure {
+    margin: 0;
+}
+
+figure img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+footer {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+footer small a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer small a:hover {
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+blockquote {
+    background-color: #fff;
+    padding: 1rem;
+    border-left: 5px solid #007bff;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+blockquote footer {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #555;
+}
+
+form label {
+    margin-top: 1rem;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin-bottom: 1rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul:nth-of-type(2) {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+body {
+    --bs-body-font-family: var(--bs-font-monospace);
+    --bs-body-line-height: 1.4;
+    --bs-body-bg: var(--bs-gray-100);
+  }
+  
+  .table {
+    --bs-table-color: var(--bs-gray-600);
+    --bs-table-bg: var(--bs-gray-100);
+    --bs-table-border-color: transparent;
+  }
