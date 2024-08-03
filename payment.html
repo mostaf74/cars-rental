@@ -6,50 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Car Rental Service - Payment</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <style>
-        nav {
-            background-color: royalblue;
-        }
-
-        body {
-            background-color:#002c48;
-        }
-
-        main.container {
-            border: 1px solid #ccc;
-            background-color: #fff;
-            padding: 20px;
-            color: #333;
-        }
-
-        h2,
-        h3 {
-            color: #0056b3;
-        }
-
-        label,
-        p {
-            color: #333;
-        }
-
-        footer.container {
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-            color: #333;
-        }
-
-        nav ul li {
-            color: red;
-        }
-        nav ul li a {
-            color: aliceblue;
-        }
-
-        input,
-        textarea {
-            background-color: aliceblue;
-        }
-    </style>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -90,9 +48,9 @@
                     <input type="text" id="cvv" name="cvv" placeholder="123" required>
                     <div class="feedback" id="cvv-feedback"></div>
 
-                    <label for="billing-address">Billing Address</label>
-                    <textarea id="billing-address" name="billing-address" required></textarea>
-                    <div class="feedback" id="billing-address-feedback"></div>
+                    <label for="Nameoncard"> Name on card</label>
+                    <input type="text" id="Nameoncard" name="Nameoncard" required>
+                    <div class="feedback" id="Nameoncard-feedback"></div>
 
                     <button type="submit">Complete Payment</button>
                 </form>
@@ -103,79 +61,10 @@
     <footer class="container">
         <small><a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a> • <a href="contact.html">Contact Us</a></small>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const queryParams = new URLSearchParams(window.location.search);
 
-            const bookingDetails = {
-                car: queryParams.get('car'),
-                name: queryParams.get('name'),
-                email: queryParams.get('email'),
-                phone: queryParams.get('phone'),
-                pickupLocation: queryParams.get('pickup-location'),
-                dropoffLocation: queryParams.get('dropoff-location'),
-                pickupDate: queryParams.get('pickup-date'),
-                dropoffDate: queryParams.get('dropoff-date'),
-                carType: queryParams.get('car-type'),
-                price: queryParams.get('price'),
-                rentalDays: queryParams.get('rental-days'),
-                specialRequests: queryParams.get('special-requests')
-            };
-
-            displayBookingDetails(bookingDetails);
-            calculateTotalPayment(bookingDetails.price, bookingDetails.rentalDays);
-
-            document.getElementById('payment-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                const isValid = validatePaymentForm();
-
-                if (isValid) {
-                    alert('Payment completed! Thank you for your booking.');
-                    // Redirect to a confirmation page or another action here
-                }
-            });
-
-            function validatePaymentForm() {
-                let isValid = true;
-                const requiredFields = document.querySelectorAll('#payment-form [required]');
-
-                requiredFields.forEach(field => {
-                    const feedbackElement = document.getElementById(`${field.id}-feedback`);
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        feedbackElement.textContent = 'This field is required';
-                    } else {
-                        feedbackElement.textContent = '';
-                    }
-                });
-
-                return isValid;
-            }
-
-            function displayBookingDetails(details) {
-                const detailsContainer = document.getElementById('booking-details');
-                detailsContainer.innerHTML = `
-                    <h3>Booking Details</h3>
-                    <p><strong>Car Model:</strong> ${details.car}</p>
-                    <p><strong>Name:</strong> ${details.name}</p>
-                    <p><strong>Email:</strong> ${details.email}</p>
-                    <p><strong>Phone:</strong> ${details.phone}</p>
-                    <p><strong>Pick-up Location:</strong> ${details.pickupLocation}</p>
-                    <p><strong>Drop-off Location:</strong> ${details.dropoffLocation}</p>
-                    <p><strong>Pick-up Date:</strong> ${details.pickupDate}</p>
-                    <p><strong>Drop-off Date:</strong> ${details.dropoffDate}</p>
-                    <p><strong>Car Type:</strong> ${details.carType}</p>
-                    <p><strong>Price per Day:</strong> $${details.price}</p>
-                    <p><strong>Special Requests:</strong> ${details.specialRequests || 'None'}</p>
-                `;
-            }
-
-            function calculateTotalPayment(price, rentalDays) {
-                const totalPayment = price * rentalDays;
-                const totalPaymentContainer = document.getElementById('total-payment');
-                totalPaymentContainer.textContent = `Total Payment: $${totalPayment}`;
-            }
-        });
+    <a href="book.html" role="button" class="book-now">Book Now</a>
+    <script src="payment.js">
+    
     </script>
 </body>
 
