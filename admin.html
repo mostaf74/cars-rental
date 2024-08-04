@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,84 +8,124 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Admin Dashboard</h2>
-        <ul>
-            <li><a href="#users">Users</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#appointments">Appointments</a></li>
-            <li><a href="#orders">Orders</a></li>
-        </ul>
-    </div>
-    <div class="content">
-        <section id="users">
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <div class="tabs">
+            <button onclick="showTab('users')">Users</button>
+            <button onclick="showTab('appointments')">Appointments</button>
+            <button onclick="showTab('cars')">Cars</button>
+        </div>
+
+        <div id="users" class="tab-content">
             <h2>Users</h2>
-            <button class="add-btn">Add User</button>
-            <table>
+            <button onclick="openSearchModal('users')">Search Users</button>
+            <button onclick="openUserModal()">Add User</button>
+            <table id="usersTable">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Password</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- User rows go here -->
                 </tbody>
             </table>
-        </section>
-        <section id="products">
-            <h2>Products</h2>
-            <button class="add-btn">Add Product</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Product rows go here -->
-                </tbody>
-            </table>
-        </section>
-        <section id="appointments">
+        </div>
+
+        <div id="appointments" class="tab-content" style="display: none;">
             <h2>Appointments</h2>
-            <button class="add-btn">Add Appointment</button>
-            <table>
+            <button onclick="openSearchModal('appointments')">Search Appointments</button>
+            <button onclick="openAppointmentModal()">Add Appointment</button>
+            <table id="appointmentsTable">
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>User</th>
                         <th>Date</th>
-                        <th>Time</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Appointment rows go here -->
                 </tbody>
             </table>
-        </section>
-        <section id="orders">
-            <h2>Orders</h2>
-            <button class="add-btn">Add Order</button>
-            <table>
+        </div>
+
+        <div id="cars" class="tab-content" style="display: none;">
+            <h2>Cars</h2>
+            <button onclick="openSearchModal('cars')">Search Cars</button>
+            <button onclick="openCarModal()">Add Car</button>
+            <table id="carsTable">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Customer</th>
-                        <th>Total</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Year</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Order rows go here -->
                 </tbody>
             </table>
-        </section>
+        </div>
     </div>
+
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('userModal')">&times;</span>
+            <h2>Add User</h2>
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" placeholder="Enter user name">
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" placeholder="Enter user email">
+            <label for="userPassword">Password:</label>
+            <input type="password" id="userPassword" placeholder="Enter user password">
+            <button onclick="saveUser()">Save User</button>
+        </div>
+    </div>
+
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('appointmentModal')">&times;</span>
+            <h2>Add/Edit Appointment</h2>
+            <label for="appointmentUser">User:</label>
+            <input type="text" id="appointmentUser" placeholder="Enter user name">
+            <label for="appointmentDate">Date:</label>
+            <input type="date" id="appointmentDate">
+            <button onclick="saveAppointment()">Save Appointment</button>
+        </div>
+    </div>
+
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('carModal')">&times;</span>
+            <h2>Add/Edit Car</h2>
+            <label for="carMake">Make:</label>
+            <input type="text" id="carMake" placeholder="Enter car make">
+            <label for="carModel">Model:</label>
+            <input type="text" id="carModel" placeholder="Enter car model">
+            <label for="carYear">Year:</label>
+            <input type="number" id="carYear" placeholder="Enter car year" min="1900" max="2099">
+            <button onclick="saveCar()">Save Car</button>
+        </div>
+    </div>
+
+
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('searchModal')">&times;</span>
+            <h2>Search</h2>
+            <div id="searchFields">
+                <label for="searchQuery">Search Query:</label>
+                <input type="text" id="searchQuery" placeholder="Enter search query">
+            </div>
+            <button onclick="performSearch()">Search</button>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
 </body>
 </html>
