@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Rental Service - Cars</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cars.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <div class="nav__bar">
+                <div class="logo nav__logo">
+                    <a href="home.html"><img src="/images/assets/logo.png" alt="logo" /></a>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <ul>
+                    <li><a href="home.ejs">HOME</a></li>
+                    <li><a href="about.ejs">ABOUT</a></li>
+                    <li><a href="cars.ejs">CARS</a></li>
+                    <li><a href="contact.ejs">CONTACT</a></li>
+                    <li><a href="book.ejs" role="button" class="btn-primary">Book Now</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="main-container">
+            <h6>Our Fleet</h6>
+            <h3>Choose from a wide variety of vehicles</h3>
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search cars...">
+            </div>
+            <div class="car-section">
+                <div class="car-card" data-name="Toyota Corolla Sedan" data-price="29">
+                    <img src="/images/image/OIP-removebg-preview.png" alt="Toyota Corolla Sedan">
+                    <h3>Toyota Corolla Sedan</h3>
+                    <p>A reliable sedan for your daily commute or business trips.</p>
+                    <div class="price">$29 / day</div>
+                    <a href="./car-details-toyota-corolla.ejs" class="btn-primary">View Details</a>
+                </div>
+
+                <div class="car-card" data-name="BMW X5 SUV" data-price="55">
+                    <img src="/image/bmw x5 new.png" alt="BMW X5 SUV">
+                    <h3>BMW X5 SUV</h3>
+                    <p>Luxurious SUV perfect for family vacations and off-road adventures.</p>
+                    <div class="price">$55 / day</div>
+                    <a href="car-details-bmw-x5.ejs" class="btn-primary">View Details</a>
+                </div>
+
+                <div class="car-card" data-name="Mercedes-Benz E-Class" data-price="65">
+                    <img src="/images/image/e class.png" alt="Mercedes-Benz E-Class">
+                    <h3>Mercedes-Benz E-Class</h3>
+                    <p>Elegant and sophisticated for those who appreciate comfort and style.</p>
+                    <div class="price">$65 / day</div>
+                    <a href="car-details-mercedes-e-class.ejs" class="btn-primary">View Details</a>
+                </div>
+
+                <div class="car-card" data-name="Audi A6" data-price="60">
+                    <img src="/image/audi a6.webp" alt="Audi A6">
+                    <h3>Audi A6</h3>
+                    <p>Comfort and performance combined in a sleek design.</p>
+                    <div class="price">$60 / day</div>
+                    <a href="./car-details-audi-a6.ejs" class="btn-primary">View Details</a>
+                </div>
+
+                <div class="car-card" data-name="Ford Mustang" data-price="70">
+                    <img src="/images/image/black mustang.jpg" alt="Ford Mustang">
+                    <h3>Ford Mustang</h3>
+                    <p>Experience the thrill of driving a classic American muscle car.</p>
+                    <div class="price">$70 / day</div>
+                    <a href="./car-details-ford-mustang.ejs" class="btn-primary">View Details</a>
+                </div>
+
+                <div class="car-card" data-name="Tesla Model S" data-price="100">
+                    <img src="image/tesla.png" alt="Tesla Model S">
+                    <h3>Tesla Model S</h3>
+                    <p>Innovative electric vehicle with cutting-edge technology.</p>
+                    <div class="price">$100 / day</div>
+                    <a href="./car-details-tesla-model-s.ejs" class="btn-primary">View Details</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <small>&copy; 2024 Car Rental Service. All rights reserved. <a href="privacy.html">Privacy Policy</a></small>
+    </footer>
+
+    
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/cars.js"></script>
+
+    <script>
+        // Your existing JavaScript functions go here
+
+        // Validate Car
+        function validateCar() {
+            const make = document.getElementById('carMake').value.trim();
+            const model = document.getElementById('carModel').value.trim();
+            const year = document.getElementById('carYear').value;
+            const image = document.getElementById('carImage').files[0];
+
+            if (!make) {
+                alert('Please enter the car make.');
+                return false;
+            }
+            if (!model) {
+                alert('Please enter the car model.');
+                return false;
+            }
+            if (!year || year < 1900 || year > 2099) {
+                alert('Please enter a valid year between 1900 and 2099.');
+                return false;
+            }
+            if (!image) {
+                alert('Please upload a car image.');
+                return false;
+            }
+            return true;
+        }
+
+        // Save Car
+        function saveCar() {
+            if (!validateCar()) return;
+            const carTable = document.querySelector('.car-section');
+            const newCard = document.createElement('div');
+            newCard.classList.add('car-card');
+            newCard.setAttribute('data-name', document.getElementById('carMake').value.trim() + ' ' + document.getElementById('carModel').value.trim());
+            newCard.setAttribute('data-price', '0'); // Set default price to 0, update as needed
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                newCard.innerHTML = `
+                    <img src="${e.target.result}" alt="${document.getElementById('carMake').value.trim()} ${document.getElementById('carModel').value.trim()}">
+                    <h3>${document.getElementById('carMake').value.trim()} ${document.getElementById('carModel').value.trim()}</h3>
+                    <p>Newly added car.</p>
+                    <div class="price">$0 / day</div>
+                    <a href="#" class="btn-primary">View Details</a>
+                `;
+                carTable.appendChild(newCard);
+            }
+            reader.readAsDataURL(document.getElementById('carImage').files[0]);
+
+            closeModal('carModal');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
