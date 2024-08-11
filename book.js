@@ -1,9 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Check if the user is logged in before allowing booking
-    if (!localStorage.getItem('loggedIn')) {
-        alert('You must be logged in to book now.');
-        window.location.href = 'index.html'; // Redirect to login page
-    }
+
+
 
     function getQueryParam(name) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -14,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (carType) {
         document.getElementById('car-type').value = carType;
     }
-});
+
 
 document.getElementById('booking-form').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -51,5 +47,5 @@ document.getElementById('booking-form').addEventListener('submit', function (eve
 
     const formData = new FormData(this);
     const queryParams = new URLSearchParams(formData).toString();
-    window.location.href = 'payment.html?' + queryParams;
+    window.location.href = 'payment.ejs?' + queryParams;
 });

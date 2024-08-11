@@ -24,7 +24,6 @@ function login() {
     x.style.opacity = 1;
     y.style.opacity = 0;
 }
-
 function register() {
     x.style.left = "-510px";
     y.style.right = "5px";
@@ -48,37 +47,31 @@ function login_validation() {
     const email = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
     if (email === "admin123@gmail.com" && password === "admin123") {
-        window.location.href = 'admin.html';
+        window.location.href = '/admin.ejs';
         return;
     } else if (email === "yahia@gmail.com" && password === "12345678") {
-        alert("Login successful for Yahia!");
+        alert('Invalid email or password');
         return;
     }
     localStorage.setItem('loggedIn', 'true');
-    window.location.href = 'home.html';
+    //  window.location.href = 'home.ejs';
 }
 
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const email = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
-    const loginUsernameError = document.getElementById('loginUsernameError');
-    const loginPasswordError = document.getElementById('loginPasswordError');
-
-    loginUsernameError.textContent = ''; 
-    loginPasswordError.textContent = ''; 
 
     if (!validateEmail(email)) {
-        loginUsernameError.textContent = 'Please enter a valid email address.';
+        alert('Please enter a valid email address.');
         return;
     }
 
     if (password.length < 8) {
-        loginPasswordError.textContent = 'Password must be at least 8 characters long.';
+        alert('Password must be at least 8 characters long.');
         return;
     }
 
-    
     login_validation();
 });
 
@@ -88,39 +81,29 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     const lastname = document.getElementById('registerLastname').value;
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
-    const registerFirstnameError = document.getElementById('registerFirstnameError');
-    const registerLastnameError = document.getElementById('registerLastnameError');
-    const registerEmailError = document.getElementById('registerEmailError');
-    const registerPasswordError = document.getElementById('registerPasswordError');
-
-    registerFirstnameError.textContent = ''; 
-    registerLastnameError.textContent = ''; 
-    registerEmailError.textContent = ''; 
-    registerPasswordError.textContent = ''; 
 
     if (!validateName(firstname)) {
-        registerFirstnameError.textContent = 'Firstname cant be numbers.';
+        alert('Firstname can\'t be numbers.');
         return;
     }
 
     if (!validateName(lastname)) {
-        registerLastnameError.textContent = 'Lastname cant be numbers.';
+        alert('Lastname can\'t be numbers.');
         return;
     }
 
     if (!validateEmail(email)) {
-        registerEmailError.textContent = 'Please enter a valid email address.';
+        alert('Please enter a valid email address.');
         return;
     }
 
     if (password.length < 8) {
-        registerPasswordError.textContent = 'Password must be at least 8 characters long.';
+        alert('Password must be at least 8 characters long.');
         return;
     }
 
-  
     localStorage.setItem('loggedIn', 'true');
-    window.location.href = 'home.html';
+    window.location.href = '/home.ejs';
 });
 
 document.getElementById('bookNowBtn').addEventListener('click', function (event) {
