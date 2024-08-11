@@ -1,0 +1,18 @@
+
+header {
+    width: 550px;
+}
+
+#map {
+    height: 300px;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+nav li>* {
+    color: aliceblue;
+    --spacing: 0;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}

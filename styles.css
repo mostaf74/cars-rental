@@ -22,7 +22,7 @@ nav ul li a {
 }
 
 .hero {
-    background: url('hero-image.jpg') no-repeat center center;
+    background: url('../images/assets/header.jpg') no-repeat center center;
     background-size: cover;
     color: white;
     text-align: center;

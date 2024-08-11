@@ -8,7 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: url("assets/header.jpg");
+    background: url("../images/assets/header.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -18,7 +18,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 110vh;
+    min-height: 110vh; /* Adjust the wrapper height */
     background: rgba(39, 39, 39, 0.4);
 }
 .nav{
@@ -84,7 +84,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 512px;
-    height: 420px;
+    height: 420px; /* Adjust the form box height */
     overflow: hidden;
     z-index: 2;
 }
@@ -133,7 +133,7 @@ header{
     height: 50px;
     width: 100%;
     padding: 0 10px 0 45px;
-    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Increased border size */
     border-radius: 30px;
     outline: none;
     transition: .2s ease;
@@ -225,11 +225,11 @@ header{
 }
 @media only screen and (max-width: 540px) {
     .wrapper{
-        min-height: 100vh;
+        min-height: 100vh; /* Adjust the wrapper height */
     }
     .form-box{
         width: 100%;
-        height: 500px;
+        height: 900px; /* Adjust the form box height */
     }
     .register-container, .login-container{
         width: 100%;
@@ -239,4 +239,37 @@ header{
         flex-direction: column;
         gap: 0;
     }
+}
+
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #04b513;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    transform: translateX(-50%);
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
 }

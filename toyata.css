@@ -1,0 +1,137 @@
+/* Global Styles */
+body {
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 1rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+/* Car Details */
+.car-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.car-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.car-details h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.car-details .price {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.car-details p {
+    margin-bottom: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.car-details h3 {
+    margin-top: 1.5rem;
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.car-details ul {
+    list-style-type: disc;
+    margin: 0 0 1rem 2rem;
+    padding: 0;
+}
+
+.car-details ul li {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .car-details h2 {
+        font-size: 1.75rem;
+    }
+
+    .car-details .price {
+        font-size: 1.5rem;
+    }
+
+    .car-details img {
+        width: 100%;
+    }
+
+    .car-details h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+.image-gallery img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    flex: 0 0 auto;
+    width: 250px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.gallery-thumbnails img {
+    cursor: pointer;
+    border-radius: 8px;
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-thumbnails img:hover {
+    transform: scale(1.1);
+}
