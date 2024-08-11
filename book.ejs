@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/map.css">
-
+    
 </head>
 
 <body>
@@ -17,13 +17,13 @@
             <ul>
                 <li><strong><a href="home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a></strong></li>
             </ul>
-            <ul>
-                <li><a href="./home.ejs">HOME</a></li>
-                <li><a href="about.ejs">ABOUT</a></li>
-                <li><a href="cars.ejs">CARS</a></li>
-                <li><a href="contact.ejs">CONTACT</a></li>
-                <li><a href="book.ejs" role="button" class="btn-primary">Book Now</a></li>
-            </ul>
+                <ul>
+                    <li><a href="./home.ejs">HOME</a></li>
+                    <li><a href="about.ejs">ABOUT</a></li>
+                    <li><a href="cars.ejs">CARS</a></li>
+                    <li><a href="contact.ejs">CONTACT</a></li>
+                    <li><a href="book.ejs" role="button" class="btn-primary">Book Now</a></li>
+                </ul>
             </ul>
         </nav>
         <div class="section__container header__container" id="about">
@@ -42,11 +42,7 @@
                 </hgroup>
                 <form id="booking-form" action="payment.html" method="get">
                     <label for="pickup-location">Pick-up Location</label>
-                    <select name="pickup-location" id="pickup-location" placeholder="choose pickup branche" required>
-                        <option> Rehab branch </option>
-                        <option> nasr city branch </option>
-
-                    </select>
+                    <input type="text" id="pickup-location" name="pickup-location">
 
                     <label for="pickup-date">Pick-up Date</label>
                     <input type="date" id="pickup-date" name="pickup-date">
