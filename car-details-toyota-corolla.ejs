@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toyota Corolla Sedan - Car Rental Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/car-details.css">
+</head>
+
+<body>
+    <main class="container">
+
+
+        <nav class="container-fluid">
+            <ul>
+                <a href="home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a>
+            </ul>
+            <ul>
+                <li><a href="cars.ejs">Cars</a></li>
+                <li><a href="contact.ejs" role="button">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="car-details">
+            <div class="image-gallery">
+                <img src="/images/image/OIP-removebg-preview.png" alt="Toyota Corolla Sedan">
+                <!-- Additional car images can be added here -->
+            </div>
+            <h2>Toyota Corolla Sedan</h2>
+            <div class="price">$29 / day</div>
+            <p>The Toyota Corolla Sedan offers a reliable and efficient driving experience perfect for your daily
+                commute or business trips. With its comfortable interior and smooth handling, the Corolla Sedan is an
+                excellent choice for those who value practicality and comfort.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>Fuel-efficient 1.8L 4-cylinder engine</li>
+                <li>Automatic transmission</li>
+                <li>Air conditioning</li>
+                <li>Bluetooth connectivity</li>
+                <li>Backup camera</li>
+                <li>Apple CarPlay and Android Auto</li>
+            </ul>
+
+            <h3>Specifications</h3>
+            <ul>
+                <li>Engine: 1.8L 4-cylinder</li>
+                <li>Power: 139 hp</li>
+                <li>Transmission: Automatic CVT</li>
+                <li>Fuel Economy: 30 mpg city / 38 mpg highway</li>
+                <li>Seats: 5</li>
+                <li>Trunk Capacity: 13.1 cubic feet</li>
+            </ul>
+
+            <h3>Rental Terms</h3>
+            <ul>
+                <li>Minimum rental duration: 1 day</li>
+                <li>Additional charges for mileage over 100 miles/day</li>
+                <li>Insurance options available</li>
+                <li>Must be at least 21 years old to rent</li>
+                <li>Driver's license and credit card required</li>
+            </ul>
+
+            <!-- Modify the "Book Now" button on the car details page to include the car type as a query parameter -->
+            <a href="book.ejs?car=corolla" class="btn-primary" role="button">Book Now</a>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        /* Style for the form container */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .form-logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 100px;
+        }
+
+        .form-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-content button {
+            width: 100%;
+            padding: 10px;
+            background-color: royalblue;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-content button:hover {
+            background-color: darkblue;
+        }
+
+        .form-content p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-content p a {
+            color: royalblue;
+        }
+
+        .form-content p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+
+                if (!validateEmail(email)) {
+                    alert('Invalid email format.');
+                    return;
+                }
+
+                if (!validatePassword(password)) {
+                    alert('Password must be at least 8 characters long.');
+                    return;
+                }
+
+                // If validation is successful, redirect to home.html
+                window.location.href = 'home.html';
+            });
+
+            function validateEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            function validatePassword(password) {
+                return password.length >= 8;
+            }
+        });
+    </script>
+</head>
+<body>
+    <main class="container">
+        <div class="form-container">
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Logo" class="form-logo">
+            </div>
+            <form id="loginForm" class="form-content">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </main>
+</body>
+</html>

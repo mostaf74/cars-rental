@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Rental Service - Book Now</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/map.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="container-fluid">
+            <ul>
+                <li><strong><a href="home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a></strong></li>
+            </ul>
+            <ul>
+                <li><a href="./home.ejs">HOME</a></li>
+                <li><a href="about.ejs">ABOUT</a></li>
+                <li><a href="cars.ejs">CARS</a></li>
+                <li><a href="contact.ejs">CONTACT</a></li>
+                <li><a href="book.ejs" role="button" class="btn-primary">Book Now</a></li>
+            </ul>
+            </ul>
+        </nav>
+        <div class="section__container header__container" id="about">
+            <div class="header__content">
+                <h1>Book for the best experience</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Book Your Car Now</h2>
+                    <h3>Fast and Easy Car Rental Booking</h3>
+                </hgroup>
+                <form id="booking-form" action="payment.html" method="get">
+                    <label for="pickup-location">Pick-up Location</label>
+                    <select name="pickup-location" id="pickup-location" placeholder="choose pickup branche" required>
+                        <option> Rehab branch </option>
+                        <option> nasr city branch </option>
+
+                    </select>
+
+                    <label for="pickup-date">Pick-up Date</label>
+                    <input type="date" id="pickup-date" name="pickup-date">
+
+                    <label for="car-type">Car Type</label>
+                    <select id="car-type" name="car-type">
+                        <option value="" disabled selected>Select a car type</option>
+                        <option value="corolla" data-price="29">Toyota Corolla $29/day</option>
+                        <option value="bmw" data-price="55">BMW X5 $55/day</option>
+                        <option value="mercedes" data-price="65">Mercedes-Benz $65/day</option>
+                        <option value="audi" data-price="60">Audi A6 $60/day</option>
+                        <option value="mustang" data-price="70">Mustang $70/day</option>
+                        <option value="tesla" data-price="100">Tesla $100/day</option>
+                    </select>
+
+                    <label for="rental-days">Number of Rental Days</label>
+                    <input type="number" id="rental-days" name="rental-days" min="1">
+
+                    <input type="hidden" id="price" name="price">
+                    <input type="hidden" id="total-rental-days" name="rental-days">
+
+                    <button type="submit">Proceed to Payment</button>
+                </form>
+            </section>
+            <section>
+                <hgroup>
+                    <h2>Pick-up Location</h2>
+                    <h3>Find us here</h3>
+                </hgroup>
+                <div id="map"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <div class="logo footer__logo">
+                    <a href="home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a>
+                </div>
+                <p class="section__description">
+                    With a rich legacy spanning 25 years, our commitment to excellence in car servicing is unwavering.
+                </p>
+                <ul class="footer__socials">
+                    <li>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-google-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-youtube-line"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Our Services</h4>
+                <ul class="footer__links">
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Contact Info</h4>
+                <ul class="footer__links">
+                    <li>
+                        <p>Experience the magic of a rejuvenated ride as we pamper your car with precision care</p>
+                    </li>
+                    <li>
+                        <p>Phone: <span>+91 9876543210</span></p>
+                    </li>
+                    <li>
+                        <p>Email: <span>info@carserving.com</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+
+
+    </script>
+    <script src="js/map.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/calender.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBILy-o3Br-2JO11e5OKlW0C0I3CaTBNd4&libraries=places&callback=initMap"
+        async defer></script>
+</body>
+
+</html>

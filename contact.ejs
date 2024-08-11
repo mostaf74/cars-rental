@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car Rental Service - Contact</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+  
+</head>
+
+<body>
+
+
+  <header class="header">
+    <nav>
+      <div class="nav__bar">
+        <div class="logo nav__logo">
+          <a href="home.ejs"><img src="images/assets/logo.png" alt="logo" /></a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="home.ejs">HOME</a></li>
+        <li><a href="/about.ejs">ABOUT</a></li>
+        <li><a href="cars.ejs">CARS</a></li>
+        <li><a href="contact.ejs">CONTACT</a></li>
+        <li><a href="book.ejs" role="button" class="btn-primary">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container main-content">
+    <section>
+      <h2>Contact Us</h2>
+      <h3>We're here to assist you</h3>
+      <p>If you have any questions, need assistance, or want to provide feedback, please feel free to reach out to us
+        using the form below. Our dedicated team is committed to ensuring your car rental experience is seamless and
+        enjoyable.</p>
+
+      <form id="contactForm" action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" >
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" >
+
+        <label for="phone">Phone (Optional)</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <div class="logo footer__logo">
+          <a href="#"><img src="images/assets/logo.png" alt="logo" /></a>
+        </div>
+        <p class="section__description">
+          With a rich legacy spanning 25 years, our commitment to excellence
+          in car servicing is unwavering.
+        </p>
+        <ul class="footer__socials">
+          <li>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-google-fill"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-instagram-line"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-youtube-line"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Our Services</h4>
+        <ul class="footer__links">
+          <li><a href="privacy.ejs">Privacy</a></li>
+          <li><a href="contact.ejs">Contact</a></li>
+          <li><a href="terms.ejs">Terms and Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Info</h4>
+        <ul class="footer__links">
+          <li>
+            <p>
+              Experience the magic of a rejuvenated ride as we pamper your car
+              with precision care
+            </p>
+          </li>
+          <li>
+            <p>Phone: <span>+91 9876543210</span></p>
+          </li>
+          <li>
+            <p>Email: <span>info@carserving.com</span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div class="footer__bar">
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+
+</html>

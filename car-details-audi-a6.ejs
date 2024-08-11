@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audi A6 - Car Rental Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/car-details.css">
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <a href="./home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a>
+        </ul>
+        <ul>
+            <li><a href="cars.ejs">Cars</a></li>
+            <li><a href="contact.ejs" role="button">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="car-details">
+            <div class="image-gallery">
+                <img src="../public/images/image/audi a6.webp" alt="Audi A6">
+                <!-- Additional car images can be added here -->
+            </div>
+            <h2>Audi A6</h2>
+            <div class="price">$140 / day</div>
+            <p>The Audi A6 blends advanced technology, elegant design, and powerful performance. Perfect for business and leisure, the A6 provides a comfortable and luxurious driving experience with its spacious interior and premium features.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>2.0L 4-cylinder turbocharged engine</li>
+                <li>7-speed S tronic transmission</li>
+                <li>Four-zone automatic climate control</li>
+                <li>Bluetooth connectivity</li>
+                <li>360-degree camera</li>
+                <li>Apple CarPlay and Android Auto</li>
+            </ul>
+
+            <h3>Specifications</h3>
+            <ul>
+                <li>Engine: 2.0L 4-cylinder turbo</li>
+                <li>Power: 248 hp</li>
+                <li>Transmission: 7-speed S tronic automatic</li>
+                <li>Fuel Economy: 24 mpg city / 32 mpg highway</li>
+                <li>Seats: 5</li>
+                <li>Trunk Capacity: 13.7 cubic feet</li>
+            </ul>
+
+            <h3>Rental Terms</h3>
+            <ul>
+                <li>Minimum rental duration: 1 day</li>
+                <li>Additional charges for mileage over 100 miles/day</li>
+                <li>Insurance options available</li>
+                <li>Must be at least 21 years old to rent</li>
+                <li>Driver's license and credit card required</li>
+            </ul>
+
+            <a href="book.ejs?car=audi" class="btn-primary">Book Now</a>
+        </div>
+    </main>
+
+    <footer class="container">
+        <small><a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a></small>
+    </footer>
+</body>
+
+</html>

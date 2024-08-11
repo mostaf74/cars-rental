@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ford Mustang - Car Rental Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/car-details.css">
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <a href="home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a>
+        </ul>
+        <ul>
+            <li><a href="cars.ejs">Cars</a></li>
+            <li><a href="contact.ejs" role="button">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="car-details">
+            <div class="image-gallery">
+                <img src="/images/image/black mustang.png" alt="Ford Mustang">
+                <!-- Additional car images can be added here -->
+            </div>
+            <h2>Ford Mustang</h2>
+            <div class="price">$130 / day</div>
+            <p>The Ford Mustang is an iconic sports car that delivers thrilling performance and head-turning style. Ideal for both city drives and open roads, the Mustang offers a powerful engine, dynamic handling, and a comfortable interior.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>5.0L V8 engine</li>
+                <li>10-speed automatic transmission</li>
+                <li>Dual-zone automatic climate control</li>
+                <li>Bluetooth connectivity</li>
+                <li>Rearview camera</li>
+                <li>Apple CarPlay and Android Auto</li>
+            </ul>
+
+            <h3>Specifications</h3>
+            <ul>
+                <li>Engine: 5.0L V8</li>
+                <li>Power: 450 hp</li>
+                <li>Transmission: 10-speed automatic</li>
+                <li>Fuel Economy: 15 mpg city / 24 mpg highway</li>
+                <li>Seats: 4</li>
+                <li>Trunk Capacity: 13.5 cubic feet</li>
+            </ul>
+
+            <h3>Rental Terms</h3>
+            <ul>
+                <li>Minimum rental duration: 1 day</li>
+                <li>Additional charges for mileage over 100 miles/day</li>
+                <li>Insurance options available</li>
+                <li>Must be at least 21 years old to rent</li>
+                <li>Driver's license and credit card required</li>
+            </ul>
+
+            <a href="book.ejs?car=mustang" class="btn-primary">Book Now</a>
+        </div>
+    </main>
+
+    <footer class="container">
+        <small><a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a></small>
+    </footer>
+</body>
+
+</html>

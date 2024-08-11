@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMW X5 - Car Rental Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/car-details.css">
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <a href="home.ejs"><img src="/public/images/assets/logo.png" alt="logo" /></a>
+        </ul>
+        <ul>
+            <li><a href="/views/cars.ejs">Cars</a></li>
+            <li><a href="/views/contact.ejs" role="button">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="car-details">
+            <div class="image-gallery">
+                <img src="/public/images/image/bmw_x5-removebg-preview.png" alt="BMW X5">
+                <!-- Additional car images can be added here -->
+            </div>
+            <h2>BMW X5</h2>
+            <div class="price">$150 / day</div>
+            <p>The BMW X5 offers a blend of luxury, performance, and versatility. Perfect for family trips and off-road adventures, the X5 provides a spacious and comfortable interior with cutting-edge technology.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>3.0L 6-cylinder turbocharged engine</li>
+                <li>8-speed automatic transmission</li>
+                <li>Four-zone automatic climate control</li>
+                <li>Bluetooth connectivity</li>
+                <li>360-degree camera</li>
+                <li>Apple CarPlay and Android Auto</li>
+            </ul>
+
+            <h3>Specifications</h3>
+            <ul>
+                <li>Engine: 3.0L 6-cylinder turbo</li>
+                <li>Power: 335 hp</li>
+                <li>Transmission: 8-speed automatic</li>
+                <li>Fuel Economy: 21 mpg city / 26 mpg highway</li>
+                <li>Seats: 5</li>
+                <li>Trunk Capacity: 33.9 cubic feet</li>
+            </ul>
+
+            <h3>Rental Terms</h3>
+            <ul>
+                <li>Minimum rental duration: 1 day</li>
+                <li>Additional charges for mileage over 100 miles/day</li>
+                <li>Insurance options available</li>
+                <li>Must be at least 21 years old to rent</li>
+                <li>Driver's license and credit card required</li>
+            </ul>
+
+            <a href="book.ejs?car=bmw" class="btn-primary">Book Now</a>
+        </div>
+    </main>
+
+    <footer class="container">
+        <small><a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a></small>
+    </footer>
+</body>
+
+</html>

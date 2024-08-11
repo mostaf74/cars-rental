@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Rental Service - Payment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        nav {
+            background-color: royalblue;
+        }
+
+        body {
+            background-color: aliceblue;
+        }
+
+        main.container {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2,
+        h3 {
+            color: black;
+        }
+
+        label,
+        p {
+            color: #333;
+        }
+
+        footer.container {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            color: #333;
+        }
+
+        nav ul li {
+            color: red;
+        }
+
+        nav ul li a {
+            color: aliceblue;
+        }
+
+        input,
+        textarea {
+            background-color: aliceblue;
+        }
+
+        .feedback {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="container-fluid">
+            <ul>
+                <li><strong><a href="home.ejs"><img src="/images/assets/logo.png" alt="logo" /></a></strong></li>
+            </ul>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="home.ejs">HOME</a></li>
+                <li><a href="/about.ejs">ABOUT</a></li>
+                <li><a href="cars.ejs">CARS</a></li>
+                <li><a href="/contact.ejs">CONTACT</a></li>
+                <li><a href="book.ejs" role="button" class="btn-primary">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Payment</h2>
+                    <h3>Review Your Booking and Complete Payment</h3>
+                </hgroup>
+                <div id="booking-details"></div>
+                <div class="total-payment" id="total-payment"></div>
+                <form id="payment-form">
+                    <label for="card-number">Credit Card Number</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+                    <div class="feedback" id="card-number-feedback"></div>
+
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                    <div class="feedback" id="expiry-date-feedback"></div>
+
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                    <div class="feedback" id="cvv-feedback"></div>
+
+                    <label for="Name_on_card">Name On Card</label>
+                    <input id="Name_on_card" name="Name_on_card" required></input>
+                    <div class="feedback" id="Name_on_card-feedback"></div>
+
+                    <button type="submit">Complete Payment</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="container">
+        <small><a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a> • <a href="contact.html">Contact Us</a></small>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const queryParams = new URLSearchParams(window.location.search);
+
+            const bookingDetails = {
+                name: queryParams.get('name'),
+                email: queryParams.get('email'),
+                phone: queryParams.get('phone'),
+                pickupLocation: queryParams.get('pickup-location'),
+                pickupDate: queryParams.get('pickup-date'),
+                carType: queryParams.get('car-type'),
+                price: queryParams.get('price'),
+                rentalDays: queryParams.get('rental-days'),
+            };
+
+            displayBookingDetails(bookingDetails);
+            calculateTotalPayment(bookingDetails.price, bookingDetails.rentalDays);
+
+            document.getElementById('payment-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const isValid = validatePaymentForm();
+
+                if (isValid) {
+                    alert('Payment completed! Thank you for your booking.');
+                    // Redirect to a confirmation page or another action here
+                }
+            });
+
+            function validatePaymentForm() {
+                let isValid = true;
+                const requiredFields = document.querySelectorAll('#payment-form [required]');
+
+                requiredFields.forEach(field => {
+                    const feedbackElement = document.getElementById(`${field.id}-feedback`);
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        feedbackElement.textContent = 'This field is required';
+                    } else {
+                        feedbackElement.textContent = '';
+                    }
+                });
+
+                const cardNumber = document.getElementById('card-number').value;
+                const expiryDate = document.getElementById('expiry-date').value;
+                const cvv = document.getElementById('cvv').value;
+
+                if (!validateCardNumber(cardNumber)) {
+                    isValid = false;
+                    document.getElementById('card-number-feedback').textContent = 'Invalid card number';
+                }
+
+                if (!validateExpiryDate(expiryDate)) {
+                    isValid = false;
+                    document.getElementById('expiry-date-feedback').textContent = 'Invalid expiry date';
+                }
+
+                if (!validateCVV(cvv)) {
+                    isValid = false;
+                    document.getElementById('cvv-feedback').textContent = 'Invalid CVV';
+                }
+
+                return isValid;
+            }
+
+            function validateCardNumber(cardNumber) {
+                const cardNumberPattern = /^\d{16}$/;
+                return cardNumberPattern.test(cardNumber);
+            }
+
+            function validateExpiryDate(expiryDate) {
+                const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+                return expiryDatePattern.test(expiryDate);
+            }
+
+            function validateCVV(cvv) {
+                const cvvPattern = /^\d{3}$/;
+                return cvvPattern.test(cvv);
+            }
+
+            function displayBookingDetails(details) {
+                const detailsContainer = document.getElementById('booking-details');
+                detailsContainer.innerHTML = `
+                    <h3>Booking Details</h3>
+                    <p><strong>Name:</strong> ${details.name}</p>
+                    <p><strong>Email:</strong> ${details.email}</p>
+                    <p><strong>Pick-up Location:</strong> ${details.pickupLocation}</p>
+                    <p><strong>Pick-up Date:</strong> ${details.pickupDate}</p>
+                    <p><strong>Car Type:</strong> ${details.carType}</p>
+                    <p><strong>Price per Day:</strong> $${details.price}</p>
+                `;
+            }
+
+            function calculateTotalPayment(price, rentalDays) {
+                const totalPayment = price * rentalDays;
+                const totalPaymentContainer = document.getElementById('total-payment');
+                totalPaymentContainer.textContent = `Total Payment: $${totalPayment}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

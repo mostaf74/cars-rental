@@ -116,6 +116,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Password</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -125,6 +126,7 @@
                             <td><%= admin._id %></td>
                             <td><%= admin.name %></td>
                             <td><%= admin.email %></td>
+                            <td><%= admin.password%></td>
                             <td>
                                 <button onclick="openEditAdminModal('<%= admin._id %>', '<%= admin.name %>', '<%= admin.email %>')">Edit</button>
                                 <form action="/deleteadmin" method="POST" style="display:inline;">
@@ -187,6 +189,9 @@
         </div>
     </div>
 
+
+
+    
     <!-- Admin Modal -->
     <div id="adminModal" class="modal">
         <div class="modal-content">
@@ -194,14 +199,20 @@
             <h2>Add/Edit Admin</h2>
             <form id="adminForm" action="/saveadmin" method="POST" onsubmit="return validateAdmin()">
                 <input type="hidden" id="adminId" name="adminId">
+                
                 <label for="adminName">Name:</label>
                 <input type="text" id="adminName" name="adminName" placeholder="Enter admin name" required>
-
+            
                 <label for="adminEmail">Email:</label>
                 <input type="email" id="adminEmail" name="adminEmail" placeholder="Enter admin email" required>
-
+            
+                <label for="adminPassword">Password:</label>
+                <input type="password" id="adminPassword" name="adminPassword" placeholder="Enter admin password" required>
+            
                 <button type="submit">Save Admin</button>
             </form>
+            
+            
         </div>
     </div>
 
@@ -327,22 +338,28 @@
             return true;
         }
 
-        // Validate Admin Form
         function validateAdmin() {
-            const name = document.getElementById('adminName').value.trim();
-            const email = document.getElementById('adminEmail').value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const name = document.getElementById('adminName').value.trim();
+    const email = document.getElementById('adminEmail').value.trim();
+    const password = document.getElementById('adminPassword').value.trim(); // Get the password value
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /{8,}$/;
 
-            if (!name) {
-                alert('Please enter the admin\'s name.');
-                return false;
-            }
-            if (!email || !emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return false;
-            }
-            return true;
-        }
+    if (!name) {
+        alert('Please enter the admin\'s name.');
+        return false;
+    }
+    if (!email || !emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+    if (!password || !passwordRegex.test(password)) {
+        alert('Please enter a valid password. It should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        return false;
+    }
+    return true;
+}
+
 
         // Form submission handlers
         document.querySelector('#userModal form').addEventListener('submit', function(event) {
